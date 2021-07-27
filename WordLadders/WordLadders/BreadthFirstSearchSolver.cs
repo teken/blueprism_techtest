@@ -3,11 +3,11 @@ using System.Linq;
 
 namespace WordLadders
 {
-    public class DepthFirstSearchSolver : IWordLadderSolver
+    public class BreadthFirstSearchSolver : IWordLadderSolver
     {
         public IEnumerable<string> Dictionary { get; }
 
-        public DepthFirstSearchSolver(string[] dictionary)
+        public BreadthFirstSearchSolver(string[] dictionary)
         {
             Dictionary = new List<string>(dictionary).Select(x => x.ToLower());
         }
@@ -26,7 +26,7 @@ namespace WordLadders
 
             var graph = new Graph(filteredDictionary.ToList());
 
-            var (found, path) = graph.DFSearch(startWord, endWord);
+            var (found, path) = graph.BFSearch(startWord, endWord);
             return found ? path : null;
         }
     }

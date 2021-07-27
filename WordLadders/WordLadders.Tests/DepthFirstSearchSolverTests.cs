@@ -12,17 +12,17 @@ namespace WordLadders.Tests
             var solver = new DepthFirstSearchSolver(dictionary);
         
             var result = solver.Solve(startWord, endWord);
-            Assert.IsNotNull(result, $"Solverable word ladder not solved, startword={startWord} endword={endWord}");
+            Assert.NotNull(result); //$"Solverable word ladder not solved, startword={startWord} endword={endWord}"
         }
 
         [Theory]
-        [InlineData(new string[]{"Spin","Spat","Spot","Span"}, "Spin", "Spot")]
+        [InlineData(new string[]{"Spin","Spat","Spot"}, "Spin", "Spot")]
         public void Unsolverable(string[] dictionary, string startWord, string endWord)
         {
             var solver = new DepthFirstSearchSolver(dictionary);
         
             var result = solver.Solve(startWord, endWord);
-            Assert.IsNull(result, $"Unsolverable word ladder solved, startword={startWord} endword={endWord}, ladder={result.Join(",")}");
+            Assert.Null(result); //, $"Unsolverable word ladder solved, startword={startWord} endword={endWord}, ladder={result.Join(",")}"
         }
     }
 }

@@ -31,13 +31,15 @@ namespace WordLadders
             }
             string[] dictionary = File.ReadAllLines(cliArgsParser.Object.DictionaryFile);
             
-            IWordLadderSolver solver = new DepthFirstSearchSolver(dictionary);
+            IWordLadderSolver solver = new BreadthFirstSearchSolver(dictionary);
 
             var ladder = solver.Solve(cliArgsParser.Object.StartWord, cliArgsParser.Object.EndWord);
             if (ladder == null) {
                 Console.Error.WriteLine("No valid ladder found");
                 return;
             }
+
+            File.WriteAllLines(cliArgsParser.Object.ResultFile, ladder);
 
             } catch(Exception e) {
                 Console.Error.WriteLine($"Application Failed: {e.Message}");

@@ -1,7 +1,9 @@
+using System.Collections.Generic;
+
 namespace WordLadders
 {
     public interface IWordLadderSolver
     {
-        public string[] Solve(string startWord, string endWord);
+        public IEnumerable<string> Solve(string startWord, string endWord);
     }
 }

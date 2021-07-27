@@ -1,0 +1,8 @@
+{
+  "profiles": {
+    "WordLadders": {
+      "commandName": "Project",
+      "commandLineArgs": "-d D:\\Users\\Duncan\\Downloads\\words-english\\words-english.txt -o D:\\Users\\Duncan\\Downloads\\words-english\\out.txt -s spot -e spin"
+    }
+  }
+}

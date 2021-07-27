@@ -1,0 +1,28 @@
+using System;
+using Xunit;
+
+namespace WordLadders.Tests
+{
+    public class BreadthFirstSearchSolverTests
+    {
+        [Theory]
+        [InlineData(new string[]{"Spin","Spit","Spat","Spot","Span"}, "Spin", "Spot")]
+        public void Solverable(string[] dictionary, string startWord, string endWord)
+        {
+            var solver = new BreadthFirstSearchSolver(dictionary);
+        
+            var result = solver.Solve(startWord, endWord);
+            Assert.NotNull(result); //$"Solverable word ladder not solved, startword={startWord} endword={endWord}"
+        }
+
+        [Theory]
+        [InlineData(new string[]{"Spin","Spat","Spot"}, "Spin", "Spot")]
+        public void Unsolverable(string[] dictionary, string startWord, string endWord)
+        {
+            var solver = new BreadthFirstSearchSolver(dictionary);
+        
+            var result = solver.Solve(startWord, endWord);
+            Assert.Null(result); //, $"Unsolverable word ladder solved, startword={startWord} endword={endWord}, ladder={result.Join(",")}"
+        }
+    }
+}
